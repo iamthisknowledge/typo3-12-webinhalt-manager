@@ -2,6 +2,7 @@ version: '3.7'
 
 services:
   web:
+    build: .
     image: webdevops/php-apache-dev:8.1
     container_name: typo3_web
     working_dir: /var/www/html
@@ -12,7 +13,7 @@ services:
     depends_on:
       - db
     environment:
-      - WEB_DOCUMENT_ROOT=/var/www/html/public
+      - WEB_DOCUMENT_ROOT=/var/www/html/typo3_src/public
       - PHP_DISPLAY_ERRORS=1
       - PHP_ERROR_REPORTING=E_ALL
       - PHP_MEMORY_LIMIT=256M

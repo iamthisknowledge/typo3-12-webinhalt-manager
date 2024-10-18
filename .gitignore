@@ -1,0 +1,67 @@
+# Composer Dependencies
+/vendor/
+/composer.lock
+
+# TYPO3 Specific Files and Directories
+# Exclude configuration files containing sensitive information
+typo3_src/public/typo3conf/LocalConfiguration.php
+typo3_src/public/typo3conf/AdditionalConfiguration.php
+
+# Exclude TYPO3 temporary and cache directories
+typo3_src/public/typo3temp/
+/typo3_src/public/fileadmin/_processed_/
+/typo3_src/public/uploads/
+/typo3_src/public/var/
+/typo3_src/public/logs/
+
+# Environment Variables
+.env
+.env.local
+
+# Docker Related Files
+# Exclude Docker override files and build directories
+docker-compose.override.yml
+.docker/
+/Dockerfile
+
+# IDE and Editor Specific Files
+/.idea/
+/.vscode/
+/*.sublime-project
+/*.sublime-workspace
+/.nbproject/
+/*.code-workspace
+
+# Operating System Specific Files
+.DS_Store
+Thumbs.db
+Icon?
+ehthumbs.db
+Desktop.ini
+
+# Logs and Temporary Files
+/logs/
+/tmp/
+/var/log/
+/var/tmp/
+
+# Node.js Dependencies (if applicable)
+/node_modules/
+
+# Build and Generated Assets (if using frontend build tools)
+/public/build/
+/public/assets/
+
+# Backup and Temporary Files
+*.bak
+*.tmp
+*.swp
+*~
+*.lock
+*.log
+
+# Miscellaneous
+/.htaccess
+/.htpasswd
+/.env.*
+/*.env.*

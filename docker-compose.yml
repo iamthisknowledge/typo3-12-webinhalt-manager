@@ -1,0 +1,36 @@
+version: '3.7'
+
+services:
+  web:
+    image: webdevops/php-apache-dev:8.1
+    container_name: typo3_web
+    working_dir: /var/www/html
+    volumes:
+      - ./:/var/www/html:cached
+    ports:
+      - "8080:80"
+    depends_on:
+      - db
+    environment:
+      - WEB_DOCUMENT_ROOT=/var/www/html/public
+      - PHP_DISPLAY_ERRORS=1
+      - PHP_ERROR_REPORTING=E_ALL
+      - PHP_MEMORY_LIMIT=256M
+      - PHP_MAX_EXECUTION_TIME=240
+
+  db:
+    image: mariadb:10.5
+    container_name: typo3_db
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: typo3
+      MYSQL_USER: typo3
+      MYSQL_PASSWORD: typo3
+    ports:
+      - "3306:3306"
+    volumes:
+      - db_data:/var/lib/mysql
+
+volumes:
+  db_data:

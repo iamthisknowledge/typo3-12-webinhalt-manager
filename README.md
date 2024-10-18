@@ -99,6 +99,29 @@ The following projects reflect my work in creating and managing content through 
 
 ---
 
+## Alternative Solution: Install in a Subdirectory
+Since the directory cannot be emptied, I have installed TYPO3 in a subdirectory. /typo3_src
+
+```bash
+composer create-project typo3/cms-base-distribution:^12 typo3_src
+```
+This installs TYPO3 into ```bash/var/www/html/typo3_src```.
+
+**Update the Document Root:**
+
+Adjust your docker-compose.yml to set the WEB_DOCUMENT_ROOT to /var/www/html/typo3_src/public
+```bash
+  - WEB_DOCUMENT_ROOT=/var/www/html/typo3_src/public
+  ```
+
+**Update Docker Configuration**
+If you modify the docker-compose.yml, you'll need to rebuild the Docker container:
+
+```bash
+docker-compose down
+docker-compose up -d --build
+```
+
 ## Kontakt | Contact
 
 **Deutsch:**  
